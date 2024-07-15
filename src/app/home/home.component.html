@@ -1,0 +1,21 @@
+<!--  Body Wrapper -->
+<div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+    data-sidebar-position="fixed" data-header-position="fixed">
+
+    <!-- Side Bar -->
+    <app-side-bar />
+    <!-- End of Side Bar -->
+
+    <!--  Main wrapper -->
+    <div class="body-wrapper">
+        <!--  Header Start -->
+        <app-header />
+
+        <!--  Header End -->
+        <div class="container-fluid">
+
+            <router-outlet></router-outlet>
+
+        </div>
+    </div>
+</div>

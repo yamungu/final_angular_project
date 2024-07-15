@@ -1,0 +1,114 @@
+ 
+ 
+
+<div class="" style="display: flex;flex-wrap: wrap;gap: 1em;flex-direction: row;justify-content: space-evenly;">
+    <div class="card">
+        <div class="info">
+            <small>Products</small>
+            <div class="num">{{ "152" }}</div>
+            <div><span style="font-weight: 400;"><small style="color: #009688;">24 new</small>&nbsp;<small>Since last visit</small></span></div>
+        </div>
+        <div class="ico" style="background-color: #FF889679 !important;">
+            <span class="fa fa-gift"></span>
+        </div>
+    </div>
+    <div class="card">
+        <div class="info">
+            <small>Supplier</small>
+            <div class="num">1000</div>
+            <div>
+                <span style="font-weight: 400;"><small style="color: #009688;">24 new</small>&nbsp;<small>Since last visit</small></span>
+            </div>
+        </div>
+        <div class="ico" style="background-color: #96880059 !important;">
+            <span class="fa fa-user"></span>
+        </div>
+    </div>
+    <div class="card">
+        <div class="info">
+            <small>Entrepreneur</small>
+            <div class="num">500</div>
+            <div>
+                <span style="font-weight: 400;"><small style="color: #009688;">24 new</small>&nbsp;<small>Since last visit</small></span>
+            </div>
+        </div>
+        <div class="ico" style="background-color: #00968829 !important;">
+            <span class="fa fa-user"></span>
+        </div>
+    </div>
+    <div class="card">
+        <div class="info">
+            <small>Orders</small>
+            <div class="num">100+</div>
+            <div><span style="font-weight: 400;"><small style="color: #009688;">24 new</small>&nbsp;<small>Since last visit</small></span></div>
+        </div>
+        <div class="ico" style="background-color: #66f5 !important;">
+            <span class="fa fa-clipboard"></span>
+        </div>
+    </div>
+</div>
+ 
+ 
+ <div class="product-list-container">
+    <h2>Product Results</h2>
+  
+  
+    <table mat-table class="mat-elevation-z8">
+
+       <ng-container matColumnDef="productImage">
+        <th mat-header-cell *matHeaderCellDef> Product Image </th>
+        <td mat-cell *matCellDef="let product">
+          <img [src]="product.productImage" alt="Product Image" width="50">
+        </td>
+      </ng-container> 
+       <!-- Product id Column  -->
+        <ng-container matColumnDef="Id">
+        <th mat-header-cell *matHeaderCellDef> Id </th>
+        <td mat-cell *matCellDef="let product"> {{product.Id}} </td>
+      </ng-container> 
+  
+       <!-- Product Name Column  -->
+      <ng-container matColumnDef="productName">
+        <th mat-header-cell *matHeaderCellDef> Name </th>
+        <td mat-cell *matCellDef="let product"> {{product.productName}} </td>
+      </ng-container> 
+  
+       <!-- Price Column  -->
+       <ng-container matColumnDef="price">
+        <th mat-header-cell *matHeaderCellDef> Price </th>
+        <td mat-cell *matCellDef="let product"> {{product.price | currency}} </td>
+      </ng-container> 
+  
+       <!-- Quantity Column  -->
+       <ng-container matColumnDef="quantity">
+        <th mat-header-cell *matHeaderCellDef> Quantity </th>
+        <td mat-cell *matCellDef="let product"> {{product.quantity}} </td>
+      </ng-container> 
+  
+       <!-- Location Column  -->
+      <ng-container matColumnDef="location">
+        <th mat-header-cell *matHeaderCellDef> Location </th>
+        <td mat-cell *matCellDef="let product"> {{product.location}} </td>
+      </ng-container> 
+  
+       <!-- Description Column  -->
+      <ng-container matColumnDef="description">
+        <th mat-header-cell *matHeaderCellDef> Description </th>
+        <td mat-cell *matCellDef="let product"> {{product.description}} </td>
+      </ng-container> 
+  
+       <!-- Actions Column  -->
+
+        <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef> Actions </th>
+        <td mat-cell *matCellDef="let product">
+          <button mat-button >Edit</button>
+          <button mat-button color="warn" >Delete</button>
+          <button mat-button >track location</button>
+          <button mat-button >make order</button>
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+   

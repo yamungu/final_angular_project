@@ -1,0 +1,34 @@
+.card {
+    padding: 1em;
+    border-radius: 0px;
+    box-shadow: 1px 1px .1rem #ccc;
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+}
+
+.card .info {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+small {
+    color: grey;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.ico {
+    /* background-color: #00968829; */
+    width: 32px;
+    height: 32px;
+    border-radius: 0.4rem;
+    display: grid;
+    place-content: center;
+}
+
+div.num {
+    color: black;
+    font-weight: 600;
+}

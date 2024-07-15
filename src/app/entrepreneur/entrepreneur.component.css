@@ -1,0 +1,91 @@
+.card {
+    padding: 1em;
+    border-radius: 0px;
+    box-shadow: 1px 1px .1rem #ccc;
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+}
+
+.card .info {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+small {
+    color: grey;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.ico {
+    /* background-color: #00968829; */
+    width: 32px;
+    height: 32px;
+    border-radius: 0.4rem;
+    display: grid;
+    place-content: center;
+}
+
+div.num {
+    color: black;
+    font-weight: 600;
+}
+
+ /* .product-registration-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+  }
+  
+  mat-form-field {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+   .product-list-container {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+  }
+  
+  mat-table {
+    width: 100%;
+    margin-top: 20px;
+  }  */
+    
+
+    .info{
+        max-width: 800px;
+        margin: 50px auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+      }
+      
+      mat-form-field {
+        width: 100%;
+        margin-bottom: 20px;
+      }
+      
+      button {
+        margin-top: 20px;
+        margin-right: 10px;
+      }
+      
+      .mat-elevation-z8 {
+        overflow: auto;
+      }
+      
+      table {
+        width: 100%;
+      }
+      
+  
+  
+  
+  

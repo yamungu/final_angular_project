@@ -1,0 +1,41 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row class="toolbar-row">
+        <div class="logo">
+            <span class="logo-icon fas fa-fire"></span>
+            <span class="logo-text">EntrepreneurLinkApp</span>
+        </div>
+        <div class="actions">
+            <button mat-button [matMenuTriggerFor]="menu">Login</button>
+            <button mat-button (click)="registerDialog()">Register</button>
+
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item (click)="loginDialog()">
+                    <span class="fa fa-sign-in"></span>  Entrepreneur
+                </button>
+                <button mat-menu-item (click)="loginDialog2()"><span class="fa fa-sign-in"></span> Supplier</button>
+            </mat-menu>
+        </div>
+    </mat-toolbar-row>
+</mat-toolbar>
+
+<div class="container" style="display: flex;justify-content: space-around;">
+    <div>
+        <h2 class="welcome-heading">Welcome to <i class="brand-name">Entrepreneur Link</i></h2>
+        <p class="intro">
+            Introducing the Bridging Entrepreneurs With Supplier Access System. Our web-based platform connects
+            entrepreneurs
+            directly with business suppliers online, eliminating the need for intermediaries and reducing costs.
+            <br><br>
+            Our system provides access to a comprehensive list of suppliers, including transaction details such as
+            supplier
+            information, product details, pricing, location, and contact information. Entrepreneurs can easily login to
+            view
+            supplier transactions and access product locations.
+        </p>
+        <img src="../assets/images (1).jpeg" alt="Entrepreneur Link Image" class="landing-image">
+    </div>
+
+    <div style="box-shadow: 1px 1px .5rem #ccc;border-radius: 1rem;height: fit-content;">
+        <app-login></app-login>
+    </div>
+</div>

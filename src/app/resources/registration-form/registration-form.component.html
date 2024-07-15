@@ -1,0 +1,121 @@
+
+<mat-card style="width: fit-content;margin: 0 auto;padding: 2em;">
+
+
+    <!-- <div *ngIf="isEntrepreneur === undefined">
+        <form>
+            <mat-radio-group>
+                <mat-radio-button value="entrepreneur" (change)="isEntrepreneur = true" formControlName="entrepreneur">
+                    <mat-label for="entrepreneur">Entrepreneurmat </mat-label>
+                </mat-radio-button>
+
+                <mat-radio-button value="entrepreneur" (change)="isEntrepreneur = false" formControlName="supplier">
+                    <mat-label for="supplier">Supplier </mat-label>
+                </mat-radio-button>
+            </mat-radio-group>
+        </form>
+    </div> -->
+
+
+
+    <form (ngSubmit)="register()" [formGroup]="registerForm">
+        <div mat-card-title>
+            <h2>Registration Form</h2>
+            <p>Please please put your creditials for Registration</p>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-sm-6">
+                <mat-form-field appearance="outline" style="width: 100%;">
+                    <input matInput type="text" formControlName="first_name">
+                    <mat-label for="firstname">first name</mat-label>
+                </mat-form-field>
+            </div>
+            <div class="col-md-6 col-sm-6">
+                <mat-form-field appearance="outline" style="width: 100%;">
+                    <input matInput type="text" formControlName="last_name">
+                    <mat-label for="last name">last name</mat-label>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-sm-6">
+                <mat-form-field appearance="outline" style="width: 100%;">
+                    <input matInput type="text" formControlName="email">
+                    <mat-label for="email">email</mat-label>
+                </mat-form-field>
+            </div>
+            <div class="col-md-6 col-sm-6">
+                <mat-form-field appearance="outline" style="width: 100%;">
+                    <input matInput type="text" formControlName="username">
+                    <mat-label for="username">username</mat-label>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <mat-radio-group>
+                <mat-radio-button value="entrepreneur" (change)="isEntrepreneur = true" formControlName="entrepreneur">
+                    <mat-label for="entrepreneur">Entrepreneurmat </mat-label>
+                </mat-radio-button>
+
+                <mat-radio-button value="entrepreneur" (change)="isEntrepreneur = false" formControlName="supplier">
+                    <mat-label for="supplier">Supplier </mat-label>
+                </mat-radio-button>
+            </mat-radio-group>
+        </div>
+        <div class="row">
+            <div [class]="isEntrepreneur ? 'col-md-12 col-sm-12' : 'col-md-6 col-sm-6'">
+                <mat-form-field appearance="outline" style="width: 100%;">
+                    <input matInput type="text" formControlName="phone">
+                    <mat-label for="phone number">phone number</mat-label>
+                </mat-form-field>
+            </div>
+            <div class="col-md-6 col-sm-6" *ngIf="!isEntrepreneur">
+                <mat-form-field appearance="outline" style="width: 100%;">
+                    <input matInput type="text" formControlName="company">
+                    <mat-label for="company">company</mat-label>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-sm-12" *ngIf="!isEntrepreneur">
+                <mat-form-field appearance="outline" style="width: 100%;">
+                    <mat-select value="Choose Country" formControlName="country">
+                        <mat-option value="Tanzania">TZ - Tanzania</mat-option>
+                        <mat-option value="Uganda">KNY - KENYA</mat-option>
+                        <mat-option value="Kenya">UG - UGANDA</mat-option>
+                    </mat-select>
+                    <!-- <input matInput type="text" formControlName="country"> -->
+                    <mat-label for="country">country</mat-label>
+                </mat-form-field>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 col-sm-6">
+                <mat-form-field appearance="outline" style="width: 100%;">
+                    <input matInput type="text" formControlName="password">
+                    <mat-label for="password">password</mat-label>
+
+                </mat-form-field>
+            </div>
+            <div class="col-md-6 col-sm-6">
+                <mat-form-field appearance="outline" style="width: 100%;">
+                    <input matInput type="text" formControlName="confirm password">
+                    <mat-label for="confirm password">confirm password</mat-label>
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div>
+            <button type="submit" mat-raised-button color="primary" style="width: 100%;"> register</button>
+
+        </div>
+
+        <div>
+            Already have an account?
+            <button mat-button color="warn" (click)="openloginDialog()">Login</button>
+        </div>
+    </form>
+
+</mat-card>
