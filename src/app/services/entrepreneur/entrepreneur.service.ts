@@ -2,19 +2,19 @@ import { Injectable } from '@angular/core';
 import { environment } from '../../../environments/environment.development';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { ISupplier } from '../../interfaces/supplier';
+import { IEntrepreneur } from '../../interfaces/entrepreneur';
 
 @Injectable({
   providedIn: 'root'
 })
-export class RegistrationService {
+export class EntrepreneurService {
 
   constructor(private http: HttpClient) { }
 
-  #baseUri = environment.baseUrl;
+  #baseUri = environment.baseUrl 
 
-  registerSupplier(dataInfo: any): Observable<ISupplier> {
-    return this.http.post<ISupplier>(`${this.#baseUri}/supplier`, dataInfo);
+  registerSupplier(dataInfo: any): Observable<IEntrepreneur> {
+    return this.http.post<IEntrepreneur>(`${this.#baseUri}/entrepreneur`, dataInfo);
   }
 
 }

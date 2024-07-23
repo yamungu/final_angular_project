@@ -10,7 +10,7 @@
 
             <mat-menu #menu="matMenu">
                 <button mat-menu-item (click)="loginDialog()">
-                    <span class="fa fa-sign-in"></span>  Entrepreneur
+                    <span class="fa fa-sign-in"></span> Entrepreneur
                 </button>
                 <button mat-menu-item (click)="loginDialog2()"><span class="fa fa-sign-in"></span> Supplier</button>
             </mat-menu>
@@ -18,24 +18,30 @@
     </mat-toolbar-row>
 </mat-toolbar>
 
-<div class="container" style="display: flex;justify-content: space-around;">
-    <div>
-        <h2 class="welcome-heading">Welcome to <i class="brand-name">Entrepreneur Link</i></h2>
-        <p class="intro">
-            Introducing the Bridging Entrepreneurs With Supplier Access System. Our web-based platform connects
-            entrepreneurs
-            directly with business suppliers online, eliminating the need for intermediaries and reducing costs.
-            <br><br>
-            Our system provides access to a comprehensive list of suppliers, including transaction details such as
-            supplier
-            information, product details, pricing, location, and contact information. Entrepreneurs can easily login to
-            view
-            supplier transactions and access product locations.
-        </p>
-        <img src="../assets/images (1).jpeg" alt="Entrepreneur Link Image" class="landing-image">
+<div class="" style="display: flex;justify-content: space-around;background-image: url('../../../assets/images/1.jpg');background-position: center;background-repeat: no-repeat;background-size: cover;height: calc(100dvh);">
+    <div style="flex: 1;background-color: #0009;display: grid;place-items: center;" class="">
+        <div style="backdrop-filter: blur(8px);">
+            <h2 class="welcome-heading">Welcome to <i class="brand-name">Entrepreneur Link</i></h2>
+            <p class="intro">
+                Introducing the Bridging Entrepreneurs With Supplier Access System. Our web-based platform connects
+                entrepreneurs
+                directly with business suppliers online, eliminating the need for intermediaries and reducing costs.
+                <br><br>
+                Our system provides access to a comprehensive list of suppliers, including transaction details such as
+                supplier
+                information, product details, pricing, location, and contact information. Entrepreneurs can easily login
+                to
+                view
+                supplier transactions and access product locations.
+                <!-- <br> -->
+                <!-- <img src="../assets/images (1).jpeg" alt="Entrepreneur Link Image" class="landing-image"> -->
+            </p>
+        </div>
     </div>
 
-    <div style="box-shadow: 1px 1px .5rem #ccc;border-radius: 1rem;height: fit-content;">
-        <app-login></app-login>
-    </div>
+    <!-- <div style="box-shadow: 1px 1px .5rem #ccc;height: fit-content;height: 100dvh;flex: 1;filter: blur(0px);"> -->
+        <!-- <app-login></app-login> -->
+        <!-- <img src="assets/images/1.jpg" alt="" srcset=""
+            style="width: 100%;height: 100%;object-fit: cover;object-position: center;"> -->
+    <!-- </div> -->
 </div>

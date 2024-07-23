@@ -1,11 +1,11 @@
 import { Routes } from '@angular/router';
-import { LoginComponent } from './loginEntrepreneur/login.component';
+import { LoginComponent } from './login/login.component';
 import { DashComponent } from './dash/dash.component';
 import { HomeComponent } from './home/home.component';
 import path from 'node:path';
 import { LandingPageComponent } from './pages/landing-page/landing-page.component';
 import { EntrepreneurComponent } from './entrepreneur/entrepreneur.component';
-import { SupplierComponent } from './supplier/supplier.component';
+import { SupplierComponent } from './users management/supplier.component';
 import { ProductComponent } from './pages/product/product.component';
 import { FeedbackComponent } from './feedback/feedback.component';
 // import { ProductComponent } from './product/product.component';

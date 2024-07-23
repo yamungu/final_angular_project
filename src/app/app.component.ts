@@ -5,7 +5,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { LoginComponent } from './loginEntrepreneur/login.component';
+import { LoginComponent } from './login/login.component';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { RegistrationFormComponent } from './resources/registration-form/registration-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';

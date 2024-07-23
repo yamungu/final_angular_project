@@ -9,6 +9,7 @@ import { MatTableModule } from '@angular/material/table';
 import { CdkTableDataSourceInput } from '@angular/cdk/table';
 import { EntrepreneurComponent } from '../entrepreneur/entrepreneur.component';
 import { CommonModule } from '@angular/common';
+import { FeedbackService } from '../services/feedback/feedback';
 
 
 @Component({
@@ -27,17 +28,37 @@ import { CommonModule } from '@angular/common';
 export class FeedbackComponent {
   feedbackForm: FormGroup;
   feedbackList: any[] = [];
-  displayedColumns: string[] = ['firstName', 'lastName', 'serviceQuality', 'suggestions', 'date'];
+  displayedColumns: string[] = ['id','entrepreneur','message', 'date'];
   showForm: boolean = false;
+  feedbacks: any[] = [];
+  
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private FeedbackService: FeedbackService) {
     this.feedbackForm = this.fb.group({
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required],
-      serviceQuality: ['', Validators.required],
-      suggestions: ['']
+      message: ['', Validators.required],
+      // entrepreneur: ['', Validators.required],
+      // lastName: ['', Validators.required],
+      // serviceQuality: ['', Validators.required],
+      // suggestions: ['']
     });
   }
+
+  ngOnInit(): void { 
+    this.getFeedbacks();
+    
+  }
+  getFeedbacks() {
+    this.FeedbackService.getAllFeedbacks().subscribe({
+      next: res => {
+        console.log(res);
+        this.feedbacks = res;
+      },
+      error: err => {
+        console.log(err);
+      }
+    })
+  }
+
 
   onSubmit() {
     if (this.feedbackForm.valid) {

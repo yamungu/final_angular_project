@@ -3,10 +3,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { RegistrationFormComponent } from '../../resources/registration-form/registration-form.component';
-import { LoginComponent } from '../../loginEntrepreneur/login.component';
+import { LoginComponent } from '../../login/login.component';
 import { MatCardModule } from '@angular/material/card';
 import { RouterOutlet } from '@angular/router';
-import { MatMenuModule } from '@angular/material/menu'
+import { MatMenuModule } from '@angular/material/menu';
 import { LoginSupplierComponent } from '../../login-supplier/login-supplier.component';
 
 @Component({
@@ -31,7 +31,12 @@ loginDialog2() {
 
   registerDialog() {
     this.dialog.closeAll();
-    this.dialog.open(RegistrationFormComponent);
+    this.dialog.open(RegistrationFormComponent, {
+      data: {
+        hiddenFields: ['not'],
+        isEntrepreneur: false
+      }
+    });
   }
 
 }

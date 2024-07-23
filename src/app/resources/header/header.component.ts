@@ -10,7 +10,7 @@ import { CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormField, MatLabel } from '@angular/material/form-field';
 import { MatInput } from '@angular/material/input';
-import { LoginComponent } from '../../loginEntrepreneur/login.component';
+import { LoginComponent } from '../../login/login.component';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({

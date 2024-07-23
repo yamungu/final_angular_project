@@ -49,7 +49,12 @@ export class LoginComponent implements OnInit {
 
   openRegisterDialog() {
     this.#dialog.closeAll();
-    this.#dialog.open(RegistrationFormComponent);
+    this.#dialog.open(RegistrationFormComponent, {
+      data: {
+        hiddenFields: ['not'],
+        isEntrepreneur: true
+      }
+    });
   }
   openloginDialog() {
     this.#dialog.closeAll();

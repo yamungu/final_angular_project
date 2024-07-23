@@ -4,7 +4,7 @@ import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MatToolbarModule, MatToolbarRow } from '@angular/material/toolbar';
 import { log } from 'node:console';
 import { register } from 'node:module';
-import { LoginComponent } from '../loginEntrepreneur/login.component';
+import { LoginComponent } from '../login/login.component';
 
 
 @Component({
