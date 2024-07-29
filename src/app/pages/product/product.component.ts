@@ -1,42 +1,84 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit, ViewChild, inject } from '@angular/core';
-import { ReactiveFormsModule, FormGroup, FormControl, FormsModule, Validators, FormBuilder } from '@angular/forms';
-import { MatButton, MatButtonModule, MatIconButton } from '@angular/material/button';
+import { Component, OnInit, inject } from '@angular/core';
+import {
+  FormBuilder,
+  FormGroup,
+  FormsModule,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
+import { GoogleMapsModule } from '@angular/google-maps';
+import { MatButtonModule, MatIconButton } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
-import { MatFormField, MatFormFieldModule, MatLabel } from '@angular/material/form-field';
+import { MatFormFieldModule, MatLabel } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
-import { MatInput, MatInputModule } from '@angular/material/input';
+import { MatInputModule } from '@angular/material/input';
+import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { ToastrModule } from 'ngx-toastr';
-import { RegistrationFormComponent } from '../../resources/registration-form/registration-form.component';
-import { MatTable, MatTableModule } from '@angular/material/table';
-import { ProductService } from '../../services/products/product.service';
-import { IProduct } from '../../interfaces/product';
-import { ToastrService } from 'ngx-toastr';
-import { title } from 'process';
-import { AddProductComponent } from '../../resources/add-product/add-product.component';
-import { error } from 'console';
 import { MatTooltipModule } from '@angular/material/tooltip';
-
+import { ToastrModule, ToastrService } from 'ngx-toastr';
+import { ButtonModule } from 'primeng/button';
+import { SidebarModule } from 'primeng/sidebar';
+import { IProduct } from '../../interfaces/product';
+import { AddProductComponent } from '../../resources/add-product/add-product.component';
+import { RegistrationFormComponent } from '../../resources/registration-form/registration-form.component';
+import { ProductService } from '../../services/products/product.service';
 @Component({
   selector: 'app-product',
   standalone: true,
-  imports: [MatCardModule, ToastrModule, MatFormFieldModule, ReactiveFormsModule, MatInputModule, MatLabel, MatButtonModule, MatIconButton,
-    MatIconModule, CommonModule, FormsModule, RegistrationFormComponent, MatDialogModule,
-    MatToolbarModule, MatTableModule, AddProductComponent,MatTooltipModule],
+  imports: [
+    MatCardModule,
+    ToastrModule,
+    MatFormFieldModule,
+    ReactiveFormsModule,
+    MatInputModule,
+    MatLabel,
+    MatButtonModule,
+    MatIconButton,
+    MatIconModule,
+    CommonModule,
+    FormsModule,
+    RegistrationFormComponent,
+    MatDialogModule,
+    MatToolbarModule,
+    MatTableModule,
+    AddProductComponent,
+    MatTooltipModule,
+    GoogleMapsModule,
+    SidebarModule,
+    ButtonModule,
+  ],
   templateUrl: './product.component.html',
-  styleUrl: './product.component.css'
+  styleUrl: './product.component.css',
 })
 export class ProductComponent implements OnInit {
 
+  sidebarVisible2: boolean = false;
+
+  displayLocation(_t94: any) {
+    this.sidebarVisible2 = true
+  }
   private toastr = inject(ToastrService);
   showProductRegistrationForm: boolean = false;
   productForm?: FormGroup;
   products: IProduct[] = []; // This should be typed properly in a real application
-  displayedColumns: string[] = ['productImage', 'Id', 'productName', 'price', 'quantity', 'location', 'description', 'actions'];
+  displayedColumns: string[] = [
+    'productImage',
+    'Id',
+    'productName',
+    'price',
+    'quantity',
+    'location',
+    'description',
+    'actions',
+  ];
 
-  constructor(private fb?: FormBuilder, private productService?: ProductService, private dialog?: MatDialog) {
+  constructor(
+    private fb?: FormBuilder,
+    private productService?: ProductService,
+    private dialog?: MatDialog
+  ) {
     this.productForm = this.fb?.group({
       // product_id: [''], // Include this if you want to edit products
       // product_image: ['', Validators.required],
@@ -49,13 +91,13 @@ export class ProductComponent implements OnInit {
   }
 
   // get all products
- getAllProducts(): void {
+  getAllProducts(): void {
     this.productService?.getAllProducts().subscribe({
-      next: res => {
+      next: (res) => {
         console.log(res);
         this.products = res;
       },
-      error: err => console.log(err)
+      error: (err) => console.log(err),
     });
   }
 
@@ -65,10 +107,13 @@ export class ProductComponent implements OnInit {
 
   showRegistrationForm() {
     // this.showProductRegistrationForm = true;
-    this.dialog?.open(AddProductComponent).afterClosed().subscribe({
-      next: res => this.getAllProducts(),
-      error: error => console.log(error)
-    });
+    this.dialog
+      ?.open(AddProductComponent)
+      .afterClosed()
+      .subscribe({
+        next: (res) => this.getAllProducts(),
+        error: (error) => console.log(error),
+      });
   }
 
   showProductResults() {
@@ -79,13 +124,16 @@ export class ProductComponent implements OnInit {
     if (this.productForm?.valid) {
       const product = this.productForm.value;
       this.productService?.addProduct(product).subscribe({
-        next: res => {
+        next: (res) => {
           this.getAllProducts();
           this.toastr.success('Product Successfully Added', 'Success');
         },
-        error: err => {
-          this.toastr.error('Could not add new product, please try again', 'Failed')
-        }
+        error: (err) => {
+          this.toastr.error(
+            'Could not add new product, please try again',
+            'Failed'
+          );
+        },
       });
       // if (product.Id) {
       //   const index = this.products.findIndex(p => p.product_id === product.product_id);
@@ -111,17 +159,39 @@ export class ProductComponent implements OnInit {
         this.getAllProducts();
         this.toastr.success('Product Successfully deletd', 'Success');
       },
-      error: err => {
+      error: (err) => {
         console.log(err);
-        this.toastr.error<any>('Unable to remove product', 'Error!')
+        this.toastr.error<any>('Unable to remove product', 'Error!');
       },
     });
   }
 
+  // Map Section
+  display: any;
+  center: google.maps.LatLngLiteral = {
+    lat: 22.2736308,
+    lng: 70.7512555,
+  };
+  zoom = 6;
 
+  /*------------------------------------------
+  --------------------------------------------
+  moveMap()
+  --------------------------------------------
+  --------------------------------------------*/
+  moveMap(event: google.maps.MapMouseEvent) {
+    if (event.latLng != null) this.center = event.latLng.toJSON();
+  }
+
+  /*------------------------------------------
+  --------------------------------------------
+  move()
+  --------------------------------------------
+  --------------------------------------------*/
+  move(event: google.maps.MapMouseEvent) {
+    if (event.latLng != null) this.display = event.latLng.toJSON();
+  }
 }
-
-
 
 //   productForm: FormGroup;
 
@@ -145,11 +215,6 @@ export class ProductComponent implements OnInit {
 //     }
 //   }
 
-
-
 // //table results
 // displayedColumns: string[] = ['Id','productImage', 'productName', 'price', 'quantity', 'location', 'description','actions'];
 // }
-
-
-
