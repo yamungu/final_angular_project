@@ -31,7 +31,7 @@
       </mat-form-field>
 
       <div class="row">
-        <div class="col-md-6 col-6">
+        <div class="col-md-5 col-5">
           <mat-form-field appearance="fill">
             <mat-label>Longitude</mat-label>
             <input
@@ -43,7 +43,7 @@
             />
           </mat-form-field>
         </div>
-        <div class="col-md-6 col-6">
+        <div class="col-md-5 col-5">
           <mat-form-field appearance="fill">
             <mat-label>Latitude</mat-label>
             <input
@@ -54,6 +54,11 @@
               required
             />
           </mat-form-field>
+        </div>
+        <div class="col-md-2 col-2">
+          <a (click)="openMapDialog()">
+            <span class="bi bi-pin-map"></span>
+          </a>
         </div>
       </div>
       <!-- <mat-form-field appearance="fill">
@@ -83,3 +88,19 @@
     </form>
   </div>
 </div>
+
+
+<p-sidebar [(visible)]="sidebarVisible2" position="right" [fullScreen]="true">
+  <google-map
+    height="100%"
+    width="100%"
+    [center]="center"
+    [zoom]="zoom"
+    (mapClick)="moveMap($event)"
+    (mapMousemove)="move($event)"
+  >
+  </google-map>
+
+  <!-- <div>Latitude: {{ display?.lat }}</div>
+  <div>Longitude: {{ display?.lng }}</div> -->
+</p-sidebar>
