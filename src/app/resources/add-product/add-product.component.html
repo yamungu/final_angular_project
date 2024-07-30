@@ -55,7 +55,7 @@
             />
           </mat-form-field>
         </div>
-        <div class="col-md-2 col-2">
+        <div class="col-md-2 col-2" style="display: grid;place-items: center;">
           <a (click)="openMapDialog()">
             <span class="bi bi-pin-map"></span>
           </a>
@@ -85,22 +85,26 @@
       >
         Cancel
       </button>
+
+      <p-sidebar [(visible)]="sidebarVisible2" position="right" [fullScreen]="true">
+        <google-map
+          height="100%"
+          width="100%"
+          [center]="center"
+          [zoom]="zoom"
+          (mapClick)="moveMap($event)"
+          (mapMousemove)="move($event)"
+        >
+        </google-map>
+
+        <!-- <div>Latitude: {{ display?.lat }}</div>
+        <div>Longitude: {{ display?.lng }}</div> -->
+      </p-sidebar>
     </form>
   </div>
+
+
 </div>
 
 
-<p-sidebar [(visible)]="sidebarVisible2" position="right" [fullScreen]="true">
-  <google-map
-    height="100%"
-    width="100%"
-    [center]="center"
-    [zoom]="zoom"
-    (mapClick)="moveMap($event)"
-    (mapMousemove)="move($event)"
-  >
-  </google-map>
 
-  <!-- <div>Latitude: {{ display?.lat }}</div>
-  <div>Longitude: {{ display?.lng }}</div> -->
-</p-sidebar>
