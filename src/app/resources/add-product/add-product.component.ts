@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, inject } from '@angular/core';
-import { ReactiveFormsModule, FormsModule, FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule, MatIconButton } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
@@ -10,9 +10,9 @@ import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { ToastrModule, ToastrService } from 'ngx-toastr';
-import { RegistrationFormComponent } from '../registration-form/registration-form.component';
-import { ProductService } from '../../services/products/product.service';
 import { ProductComponent } from '../../pages/product/product.component';
+import { ProductService } from '../../services/products/product.service';
+import { RegistrationFormComponent } from '../registration-form/registration-form.component';
 
 @Component({
   selector: 'app-add-product',
@@ -37,6 +37,8 @@ export class AddProductComponent {
       // product_image: ['', Validators.required],
       product_name: ['', Validators.required],
       price: ['', Validators.required],
+      longitude: ['', Validators.required],
+      latitude: ['', Validators.required]
       // quantity: ['', Validators.required],
       // location: ['', Validators.required],
       // description: ['', Validators.required]
@@ -53,7 +55,7 @@ export class AddProductComponent {
     });
   }
 
-  
+
   onSubmit() {
     if (this.productForm.valid) {
       const product = this.productForm.value;

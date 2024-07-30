@@ -1,41 +1,85 @@
 <div>
-    <div class="product-registration-container">
-      <h2>Product Registration</h2>
-      <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
-        <!-- <mat-form-field appearance="fill"> -->
-        <!-- <mat-label>Product Image URL</mat-label> -->
-        <!-- <div>
+  <div class="product-registration-container">
+    <h2>Product Registration</h2>
+    <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+      <!-- <mat-form-field appearance="fill"> -->
+      <!-- <mat-label>Product Image URL</mat-label> -->
+      <!-- <div>
         <input type="file" formControlName="product_image" placeholder="Enter image URL" required>
       </div> -->
-        <!-- </mat-form-field> -->
+      <!-- </mat-form-field> -->
 
-        <mat-form-field appearance="fill">
-          <mat-label>Product Name</mat-label>
-          <input matInput formControlName="product_name" placeholder="Enter product name" required>
-        </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Product Name</mat-label>
+        <input
+          matInput
+          formControlName="product_name"
+          placeholder="Enter product name"
+          required
+        />
+      </mat-form-field>
 
-        <mat-form-field appearance="fill">
-          <mat-label>Price</mat-label>
-          <input matInput formControlName="price" type="number" placeholder="Enter price" required>
-        </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Price</mat-label>
+        <input
+          matInput
+          formControlName="price"
+          type="number"
+          placeholder="Enter price"
+          required
+        />
+      </mat-form-field>
 
-        <!-- <mat-form-field appearance="fill">
+      <div class="row">
+        <div class="col-md-6 col-6">
+          <mat-form-field appearance="fill">
+            <mat-label>Longitude</mat-label>
+            <input
+              matInput
+              formControlName="longitude"
+              type="number"
+              placeholder="Longitude"
+              required
+            />
+          </mat-form-field>
+        </div>
+        <div class="col-md-6 col-6">
+          <mat-form-field appearance="fill">
+            <mat-label>Latitude</mat-label>
+            <input
+              matInput
+              formControlName="latitude"
+              type="number"
+              placeholder="Latitude"
+              required
+            />
+          </mat-form-field>
+        </div>
+      </div>
+      <!-- <mat-form-field appearance="fill">
         <mat-label>Quantity</mat-label>
         <input matInput formControlName="quantity" type="number" placeholder="Enter quantity" required>
       </mat-form-field> -->
 
-        <!-- <mat-form-field appearance="fill">
+      <!-- <mat-form-field appearance="fill">
         <mat-label>Location</mat-label>
         <input matInput formControlName="location" placeholder="Enter location" required>
       </mat-form-field> -->
 
-        <!-- <mat-form-field appearance="fill">
+      <!-- <mat-form-field appearance="fill">
         <mat-label>Description</mat-label>
         <textarea matInput formControlName="description" placeholder="Enter product description" required></textarea>
       </mat-form-field> -->
 
-        <button mat-raised-button color="primary" type="submit">Submit</button>
-        <button type="button" mat-raised-button color="warn" (click)="closeDialog()" >Cancel</button>
-      </form>
-    </div>
+      <button mat-raised-button color="primary" type="submit">Submit</button>
+      <button
+        type="button"
+        mat-raised-button
+        color="warn"
+        (click)="closeDialog()"
+      >
+        Cancel
+      </button>
+    </form>
   </div>
+</div>
