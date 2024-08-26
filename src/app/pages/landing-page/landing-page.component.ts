@@ -7,20 +7,20 @@ import { LoginComponent } from '../../login/login.component';
 import { MatCardModule } from '@angular/material/card';
 import { RouterOutlet } from '@angular/router';
 import { MatMenuModule } from '@angular/material/menu';
-import { LoginSupplierComponent } from '../../login-supplier/login-supplier.component';
+
 
 @Component({
   selector: 'app-landing-page',
   standalone: true,
-  imports: [MatToolbarModule, MatButtonModule, MatDialogModule, MatCardModule, LoginComponent, MatMenuModule],
+  imports: [MatToolbarModule, MatButtonModule, MatDialogModule, MatCardModule, MatMenuModule],
   templateUrl: './landing-page.component.html',
   styleUrl: './landing-page.component.css'
 })
 export class LandingPageComponent {
-loginDialog2() {
-  this.dialog.closeAll();
-    this.dialog.open(LoginSupplierComponent);
-}
+// loginDialog2() {
+//   this.dialog.closeAll();
+//     this.dialog.open(LoginSupplierComponent);
+// }
 
   constructor(private dialog: MatDialog) {}
 

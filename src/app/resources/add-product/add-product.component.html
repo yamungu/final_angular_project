@@ -1,3 +1,197 @@
+<!-- <div>
+  <div class="product-registration-container">
+    <h2>Product Registration</h2>
+    <form [formGroup]="productForm" (ngSubmit)="onSubmit()"> -->
+      <!-- <mat-form-field appearance="fill"> -->
+      <!-- <mat-label>Product Image URL</mat-label> -->
+      <!-- <div>
+        <input type="file" formControlName="product_image" placeholder="Enter image URL" required>
+      </div> -->
+      <!-- </mat-form-field> -->
+
+      <!-- <mat-form-field appearance="fill">
+        <mat-label>product image</mat-label>
+        <input
+          matInput
+          formControlName="product image"
+          placeholder="Enter product image"
+          required
+        />
+      </mat-form-field> -->
+
+<!-- 
+       <mat-form-field appearance="fill">
+        <mat-label>Product Image</mat-label>
+
+        <input type="file" multiple value="select" #selectFile
+        (change)="onFileSelected($event)">
+          
+      </mat-form-field> 
+  
+      
+       <div *ngIf="selectedImage">
+        <img [src]="selectedImage" alt="Selected Image" width="100" />
+      </div>  -->
+
+
+     
+
+      <!-- <mat-form-field appearance="fill">
+        <mat-label>Product Name</mat-label>
+        <input
+          matInput
+          formControlName="product_name"
+          placeholder="Enter product name"
+          required
+        />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Price</mat-label>
+        <input
+          matInput
+          formControlName="price"
+          type="number"
+          placeholder="Enter price"
+          required
+        />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>location</mat-label>
+        <input
+          matInput
+          formControlName="product_location"
+          placeholder="Enter product location"
+          required
+        />
+      </mat-form-field>
+
+      <div class="row">
+        <div class="col-md-5 col-5">
+          <mat-form-field appearance="fill">
+            <mat-label>Longitude</mat-label>
+            <input
+              matInput
+              formControlName="longitude"
+              type="number"
+              placeholder="Longitude"
+              required
+            />
+          </mat-form-field>
+        </div>
+        <div class="col-md-5 col-5">
+          <mat-form-field appearance="fill">
+            <mat-label>Latitude</mat-label>
+            <input
+              matInput
+              formControlName="latitude"
+              type="number"
+              placeholder="Latitude"
+              required
+            />
+          </mat-form-field>
+        </div>
+        <div class="col-md-2 col-2" style="display: grid;place-items: center;">
+          <a (click)="openMapDialog()">
+            <span class="bi bi-pin-map"></span>
+          </a>
+        </div>
+      </div>  -->
+      <!-- <mat-form-field appearance="fill">
+        <mat-label>Quantity</mat-label>
+        <input matInput formControlName="quantity" type="number" placeholder="Enter quantity" required>
+      </mat-form-field> -->
+
+      <!-- <mat-form-field appearance="fill">
+        <mat-label>Location</mat-label>
+        <input matInput formControlName="location" placeholder="Enter location" required>
+      </mat-form-field> -->
+
+      <!-- <mat-form-field appearance="fill">
+        <mat-label>Description</mat-label>
+        <textarea matInput formControlName="description" placeholder="Enter product description" required></textarea>
+      </mat-form-field> -->
+
+      <!-- <button mat-raised-button color="primary" type="submit">Submit</button>
+      <button
+        type="button"
+        mat-raised-button
+        color="warn"
+        (click)="closeDialog()"
+      >
+        Cancel
+      </button>
+
+      <p-sidebar [(visible)]="sidebarVisible2" position="right" [fullScreen]="true">
+        <google-map
+          height="100%"
+          width="100%"
+          [center]="center"
+          [zoom]="zoom"
+          (mapClick)="moveMap($event)"
+          (mapMousemove)="move($event)"
+        >
+        </google-map> -->
+
+        <!-- <div>Latitude: {{ display?.lat }}</div>
+        <div>Longitude: {{ display?.lng }}</div> -->
+      <!-- </p-sidebar>
+    </form>
+  </div>
+
+
+</div> -->
+
+<!-- chat -->
+<!-- 
+<div class="product-registration-container">
+  <h2>Product Registration</h2>
+  <form [formGroup]="productForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
+    
+    <mat-form-field appearance="fill">
+      <mat-label>Product Name</mat-label>
+      <input matInput formControlName="product_name" placeholder="Enter product name" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Price</mat-label>
+      <input matInput formControlName="price" type="number" placeholder="Enter price" required />
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Location</mat-label>
+      <input matInput formControlName="product_location" placeholder="Enter product location" required />
+    </mat-form-field>
+
+    <div class="row">
+      <div class="col-md-5 col-5">
+        <mat-form-field appearance="fill">
+          <mat-label>Longitude</mat-label>
+          <input matInput formControlName="longitude" type="number" placeholder="Longitude" required />
+        </mat-form-field>
+      </div>
+      <div class="col-md-5 col-5">
+        <mat-form-field appearance="fill">
+          <mat-label>Latitude</mat-label>
+          <input matInput formControlName="latitude" type="number" placeholder="Latitude" required />
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="file-input-container">
+      <input type="file" (change)="onFileSelected($event)" />
+      <p *ngIf="imageUrl">Selected Image: <img [src]="imageUrl" alt="Selected Image" height="100" /></p>
+    </div>
+
+    <button mat-raised-button color="primary" type="submit">Submit</button>
+    <button type="button" mat-raised-button color="warn" (click)="closeDialog()">Cancel</button>
+  </form>
+</div> -->
+
+<!-- chat -->
+
+
 <div>
   <div class="product-registration-container">
     <h2>Product Registration</h2>
@@ -8,6 +202,26 @@
         <input type="file" formControlName="product_image" placeholder="Enter image URL" required>
       </div> -->
       <!-- </mat-form-field> -->
+
+      <!-- <mat-form-field appearance="fill">
+        <mat-label>product image</mat-label>
+        <input
+          matInput
+          formControlName="product image"
+          placeholder="Enter product image"
+          required
+        />
+      </mat-form-field> -->
+
+
+      <!-- <mat-form-field appearance="fill">
+        <mat-label>Product Image</mat-label>
+        <input type="file" (change)="onFileSelected($event)" accept="image/*" required />
+      </mat-form-field>
+  
+      <div *ngIf="selectedImage">
+        <img [src]="selectedImage" alt="Selected Image" width="100" />
+      </div> -->
 
       <mat-form-field appearance="fill">
         <mat-label>Product Name</mat-label>
@@ -26,6 +240,16 @@
           formControlName="price"
           type="number"
           placeholder="Enter price"
+          required
+        />
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>location</mat-label>
+        <input
+          matInput
+          formControlName="product_location"
+          placeholder="Enter product location"
           required
         />
       </mat-form-field>
@@ -105,6 +329,11 @@
 
 
 </div>
+
+
+
+
+
 
 
 

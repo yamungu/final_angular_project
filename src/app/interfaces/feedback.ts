@@ -1,4 +1,5 @@
 export interface IFeedback{
+    name:string;
     messsage:string;
     date: string;
 }

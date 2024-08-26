@@ -1,20 +1,16 @@
 import { Injectable } from '@angular/core';
-import { environment } from '../../../environments/environment.development';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { IEntrepreneur } from '../../interfaces/entrepreneur';
 
 @Injectable({
   providedIn: 'root'
 })
 export class EntrepreneurService {
+  private entrepreneurUrl = 'http://localhost:8080/api/v1/entrepreneur/entrepreneur'; // Corrected URL
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
-  #baseUri = environment.baseUrl 
-
-  registerSupplier(dataInfo: any): Observable<IEntrepreneur> {
-    return this.http.post<IEntrepreneur>(`${this.#baseUri}/entrepreneur`, dataInfo);
+  registerEntrepreneur(entrepreneur: any): Observable<any> {
+    return this.http.post<any>(this.entrepreneurUrl, entrepreneur);
   }
-
 }

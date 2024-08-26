@@ -17,10 +17,6 @@ import { LoginComponent } from '../login/login.component';
     MatIconButton,
     MatToolbarModule,
     MatToolbarRow,
-    
-
-    
-    
 
   ],
   templateUrl: './dash.component.html',
@@ -28,12 +24,38 @@ import { LoginComponent } from '../login/login.component';
 })
 export class DashComponent implements OnInit {
 
-  showLogout = false;
+  // showLogout = false;
   
-  constructor(){}
-  ngOnInit(): void {
+  // constructor(){}
+  // ngOnInit(): void {
     
+  // }
+
+  currentIndex = 0;
+  texts = [
+    "Welcome to our shop",
+    "Best Service",
+    "Your Satisfaction, Our Priority", "Promotional Sales",
+    "Discounted Products",
+  ];
+  currentText = this.texts[this.currentIndex];
+
+  ngOnInit(): void {
+    this.startSlider();
   }
 
+  startSlider() {
+    const images = document.querySelectorAll('.slide');
 
+    setInterval(() => {
+      images[this.currentIndex].classList.remove('show');
+      this.currentIndex = (this.currentIndex + 1) % images.length;
+      images[this.currentIndex].classList.add('show');
+      this.currentText = this.texts[this.currentIndex];
+    }, 6000); // Change every 3 seconds
+  }
 }
+
+
+
+

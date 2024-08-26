@@ -1,19 +1,19 @@
 <mat-toolbar color="primary">
     <mat-toolbar-row class="toolbar-row">
         <div class="logo">
-            <span class="logo-icon fas fa-fire"></span>
+            <span class="fa fa-handshake-o" style="font-size: 22px;color: white"></span>&nbsp;
             <span class="logo-text">EntrepreneurLinkApp</span>
         </div>
         <div class="actions">
-            <button mat-button [matMenuTriggerFor]="menu">Login</button>
+            <button mat-button (click)="loginDialog()">Login</button>
             <button mat-button (click)="registerDialog()">Register</button>
 
-            <mat-menu #menu="matMenu">
+            <!-- <mat-menu #menu="matMenu">
                 <button mat-menu-item (click)="loginDialog()">
                     <span class="fa fa-sign-in"></span> Entrepreneur
                 </button>
                 <button mat-menu-item (click)="loginDialog2()"><span class="fa fa-sign-in"></span> Supplier</button>
-            </mat-menu>
+            </mat-menu> -->
         </div>
     </mat-toolbar-row>
 </mat-toolbar>

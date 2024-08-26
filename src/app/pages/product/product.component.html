@@ -124,7 +124,7 @@
 
 <div>
   <div class="product-list-container">
-    <h2>Product Results</h2>
+    <h2>Product Overview</h2>
     <button mat-raised-button color="primary" (click)="showRegistrationForm()">
       Add Product
     </button>
@@ -138,6 +138,15 @@
     Show Map
   </button> -->
 
+
+  <!-- <table mat-table [dataSource]="products" class="mat-elevation-z8">
+    <ng-container matColumnDef="productImage">
+      <th mat-header-cell *matHeaderCellDef> Image </th>
+      <td mat-cell *matCellDef="let product">
+        <img [src]="'data:' + product.productImages[0]?.type + ';base64,' + product.productImages[0]?.picByte" alt="Product Image" height="50">
+      </td>
+    </ng-container> -->
+
     <table mat-table [dataSource]="products" class="mat-elevation-z8">
       <ng-container matColumnDef="productImage">
         <th mat-header-cell *matHeaderCellDef>Product Image</th>
@@ -145,6 +154,19 @@
           <img [src]="product.productImage" alt="Product Image" width="50" />
         </td>
       </ng-container>
+
+      
+      
+      <!-- <form (submit)="onUpload($event)">
+        <input type="file" (change)="onFileSelected($event)">
+        <button type="submit">Upload Image</button>
+     </form>
+
+     <tr *ngFor="let product of products">
+      <td><img [src]="getProductImageUrl(product.imageUrl)" alt="Product Image" width="100"></td> -->
+      
+    
+     
 
       <ng-container matColumnDef="Id">
         <th mat-header-cell *matHeaderCellDef>Id</th>
@@ -157,7 +179,7 @@
       </ng-container>
 
       <ng-container matColumnDef="price">
-        <th mat-header-cell *matHeaderCellDef>Price</th>
+        <th mat-header-cell *matHeaderCellDef>Price Tzs</th>
         <td mat-cell *matCellDef="let product">{{ product.price }}</td>
       </ng-container>
 
@@ -166,9 +188,19 @@
         <td mat-cell *matCellDef="let product">{{ product.quantity }}</td>
       </ng-container>
 
-      <ng-container matColumnDef="location">
+      <ng-container matColumnDef="product_location">
         <th mat-header-cell *matHeaderCellDef>Location</th>
-        <td mat-cell *matCellDef="let product">{{ product.location }}</td>
+        <td mat-cell *matCellDef="let product">{{ product.product_location }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="longitude">
+        <th mat-header-cell *matHeaderCellDef>Longitude</th>
+        <td mat-cell *matCellDef="let product">{{ product.longitude }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="latitude">
+        <th mat-header-cell *matHeaderCellDef>Latitude</th>
+        <td mat-cell *matCellDef="let product">{{ product.latitude }}</td>
       </ng-container>
 
       <ng-container matColumnDef="description">
@@ -178,7 +210,7 @@
 
       <ng-container matColumnDef="actions">
         <th mat-header-cell *matHeaderCellDef>Actions</th>
-        r
+        
         <td mat-cell *matCellDef="let product">
           <button
             mat-fab

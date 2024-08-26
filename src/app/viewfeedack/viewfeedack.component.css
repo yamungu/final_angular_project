@@ -11,8 +11,6 @@
   
   .feedback-form-container, .feedback-table-container {
     margin-top: 20px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
   }
   
   mat-form-field {
@@ -20,9 +18,9 @@
     margin-bottom: 20px;
   }
   
-  /* button {
+  button {
     margin-top: 20px;
-  } */
+  }
   
   .form-actions {
     display: flex;

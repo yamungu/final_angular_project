@@ -19,6 +19,7 @@ import { FeedbackComponent } from './feedback/feedback.component';
 import { ProductComponent } from './pages/product/product.component';
 import { EntrepreneurComponent } from './entrepreneur/entrepreneur.component';
 
+
 @Component({
   selector: 'app-root',
   standalone: true,

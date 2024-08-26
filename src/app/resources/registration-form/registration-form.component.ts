@@ -48,26 +48,27 @@ export class RegistrationFormComponent implements OnInit {
 
   toastr = inject(ToastrService);
 
-  register() {
-    console.log(this.registerForm.value);
 
+  register() {
     if (this.registerForm.valid) {
+      const user = this.registerForm.value;
+  
       if (this.isEntrepreneur) {
-        this.#entrepreneurService.registerSupplier(this.registerForm.value).subscribe({
+        this.#entrepreneurService.registerEntrepreneur(user).subscribe({
           next: () => {
             this.#dialog.closeAll();
             this.toastr.success('Success!', 'Entrepreneur Registered');
           },
-          error: error => {
+          error: (error: any) => {
             console.log(error);
             this.toastr.error('Failed to Register', 'Error!');
           }
         });
       } else {
-        this.#regService.registerSupplier(this.registerForm.value).subscribe({
+        this.#regService.registerSupplier(user).subscribe({
           next: () => {
             this.#dialog.closeAll();
-            this.toastr.success('Success!', 'Supplier Registered!');
+            this.toastr.success('Success!', 'Supplier Registered');
           },
           error: error => {
             console.log(error);
@@ -76,13 +77,16 @@ export class RegistrationFormComponent implements OnInit {
         });
       }
     } else {
-      this.toastr.error('Fill all the required feilds (*)', 'Invalid!');
+      this.toastr.error('Please fill in all required fields', 'Invalid!');
     }
+  }
+  
+  
     // if (this.registerForm.valid) {
     //   this.#dialog.closeAll();
     // }
 
-  }
+  
 
   openloginDialog() {
     this.#dialog.closeAll();

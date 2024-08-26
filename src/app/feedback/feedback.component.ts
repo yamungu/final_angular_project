@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
@@ -6,8 +6,8 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatTableModule } from '@angular/material/table';
-import { CdkTableDataSourceInput } from '@angular/cdk/table';
-import { EntrepreneurComponent } from '../entrepreneur/entrepreneur.component';
+// import { CdkTableDataSourceInput } from '@angular/cdk/table';
+// import { EntrepreneurComponent } from '../entrepreneur/entrepreneur.component';
 import { CommonModule } from '@angular/common';
 import { FeedbackService } from '../services/feedback/feedback';
 
@@ -25,7 +25,19 @@ import { FeedbackService } from '../services/feedback/feedback';
   templateUrl: './feedback.component.html',
   styleUrl: './feedback.component.css'
 })
-export class FeedbackComponent {
+// export class FeedbackComponent {
+
+
+
+//   import { Component, OnInit } from '@angular/core';
+//   import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+//   import { MatSnackBar } from '@angular/material/snack-bar';
+//   import { FeedbackService } from './feedback.service'; // You need to create this service to interact with your backend.
+  
+  
+  export class FeedbackComponent  {
+ 
+  
   feedbackForm: FormGroup;
   feedbackList: any[] = [];
   displayedColumns: string[] = ['id','entrepreneur','message', 'date'];
@@ -36,10 +48,8 @@ export class FeedbackComponent {
   constructor(private fb: FormBuilder, private FeedbackService: FeedbackService) {
     this.feedbackForm = this.fb.group({
       message: ['', Validators.required],
-      // entrepreneur: ['', Validators.required],
-      // lastName: ['', Validators.required],
-      // serviceQuality: ['', Validators.required],
-      // suggestions: ['']
+      entrepreneur: ['', Validators.required],
+     
     });
   }
 

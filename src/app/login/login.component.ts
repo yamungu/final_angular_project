@@ -13,6 +13,10 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { RegistrationService } from '../services/registration/registration.service';
 import { ToastrModule } from 'ngx-toastr';
 import { ToastrService } from 'ngx-toastr';
+import { HttpClient } from '@angular/common/http';
+import { NgForm } from '@angular/forms'; 
+import {UserAuthService} from '../services/user-auth.service';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -23,29 +27,48 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class LoginComponent implements OnInit {
 
-  showPassword: boolean = false;
+  loginForm: FormGroup;
+    showPassword = false;
+
   registered = false;
 
-  showMessage(): void {
-    this.registered = true;
-
-    // setTimeout(() => { }, 3000);
-    // this.registered = false;
-  }
-
-  passwordHash() {
-    this.showPassword = !this.showPassword;
-  }
-
-  constructor(private _formBuilder: FormBuilder, private router: Router) { }
+  constructor(private _formBuilder: FormBuilder, private router: Router, private userService: UserService,private fb: FormBuilder,
+    private userAuthService: UserAuthService,
+   
+    ) {
+      this.loginForm = this.fb.group({
+        userName: ['', Validators.required],
+        userPassword: ['', Validators.required]
+    });
+     }
   #dialog: MatDialog = inject(MatDialog);
   private toastr = inject(ToastrService);
 
-  login() {
-    this.#dialog.closeAll();
-    this.toastr.success('Success!', 'Welcome Back!');
-    this.router.navigate(['dashboard']);
-  }
+login(loginForm: NgForm) {
+  this.userService.login(loginForm.value).subscribe(
+    (response: any) => {
+      this.userAuthService.setRoles(response.user.role);
+      this.userAuthService.setToken(response.jwtToken);
+
+      const role = response.user.role[0].roleName;
+      if (role === 'Admin') {
+        this.router.navigate(['/dashboard']);
+      } else {
+        this.router.navigate(['/dashboard']);
+      }
+      this.#dialog.closeAll();
+    },
+    (error: any) => {
+      console.log('Error during login:', error);
+      this.toastr.error('incorrect username or password', 'Error');
+    }
+  );
+
+}
+
+
+
+
 
   openRegisterDialog() {
     this.#dialog.closeAll();
@@ -61,11 +84,6 @@ export class LoginComponent implements OnInit {
     this.#dialog.open(LoginComponent);
   }
 
-  formData: FormGroup = new FormGroup({
-    username: new FormControl('', [Validators.required]),
-    password: new FormControl('', [Validators.required]),
-  });
-
   ngOnInit(): void {
 
     // window.alert('asdsadsadasasd');
@@ -79,4 +97,5 @@ export class LoginComponent implements OnInit {
     // this.showLogin = false;
     this.#dialog.open(RegistrationFormComponent);
   }
+
 }

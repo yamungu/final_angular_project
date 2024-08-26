@@ -24,6 +24,8 @@ import { IProduct } from '../../interfaces/product';
 import { AddProductComponent } from '../../resources/add-product/add-product.component';
 import { RegistrationFormComponent } from '../../resources/registration-form/registration-form.component';
 import { ProductService } from '../../services/products/product.service';
+// import { Component } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 @Component({
   selector: 'app-product',
   standalone: true,
@@ -47,12 +49,16 @@ import { ProductService } from '../../services/products/product.service';
     MatTooltipModule,
     GoogleMapsModule,
     SidebarModule,
-    ButtonModule,
+    ButtonModule,HttpClientModule
   ],
   templateUrl: './product.component.html',
   styleUrl: './product.component.css',
 })
 export class ProductComponent implements OnInit {
+
+  // image
+  // selectedFile: File | null = null;
+  //image
 
   sidebarVisible2: boolean = false;
 
@@ -64,20 +70,24 @@ export class ProductComponent implements OnInit {
   productForm?: FormGroup;
   products: IProduct[] = []; // This should be typed properly in a real application
   displayedColumns: string[] = [
-    'productImage',
+    // 'productImage',
     'Id',
     'productName',
     'price',
-    'quantity',
-    'location',
-    'description',
+    // 'quantity',
+    'product_location',
+    'longitude',
+    'latitude',
+    // 'description',
     'actions',
   ];
 
   constructor(
+    // private http:HttpClient,
     private fb?: FormBuilder,
     private productService?: ProductService,
-    private dialog?: MatDialog
+    private dialog?: MatDialog,
+    
   ) {
     this.productForm = this.fb?.group({
       // product_id: [''], // Include this if you want to edit products
@@ -148,9 +158,17 @@ export class ProductComponent implements OnInit {
   }
 
   editProduct(product: any) {
-    this.productForm?.patchValue(product);
+    this.productForm?.patchValue({
+      product_name: product.product_name,
+      price: product.price,
+      product_location: product.product_location,
+      longitude: product.longitude,
+      latitude: product.latitude
+    });
     this.showRegistrationForm();
   }
+  
+
 
   deleteProduct(id: any) {
     // this.products = this.products.filter(p => p !== product);
@@ -165,6 +183,10 @@ export class ProductComponent implements OnInit {
       },
     });
   }
+
+
+
+  
 
   // Map Section
   display: any;
@@ -191,7 +213,38 @@ export class ProductComponent implements OnInit {
   move(event: google.maps.MapMouseEvent) {
     if (event.latLng != null) this.display = event.latLng.toJSON();
   }
+
+
+
+
 }
+ 
+  // image
+
+  //  constructor(private http: HttpClient) { }
+
+//    onFileSelected(event: any) {
+//        this.selectedFile = event.target.files[0];
+//    }
+
+//    onUpload(event: Event) {
+//        event.preventDefault();
+
+//        if (this.selectedFile) {
+//            const uploadData = new FormData();
+//            uploadData.append('image', this.selectedFile, this.selectedFile.name);
+
+//            this.http.post('http://localhost:8080/api/products/upload', uploadData)
+//                .subscribe(response => {
+//                    console.log(response);
+//                });
+//        }
+//    }
+// }
+
+// image
+
+
 
 //   productForm: FormGroup;
 

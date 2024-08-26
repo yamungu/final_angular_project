@@ -8,6 +8,13 @@ import { IProduct } from "../../interfaces/product";
     providedIn: 'root'
 })
 export class ProductService {
+    // createProduct(formData: FormData) {
+    //   throw new Error('Method not implemented.');
+    // }
+
+    // createProduct(formData: FormData): Observable<any> {
+    //   return this.http.post(this.#productAPi, formData);
+    // } 
     addProduct(product: any): Observable<IProduct> {
       return this.http.post<any>(this.#productAPi, product);
     }
